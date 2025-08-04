@@ -6,6 +6,7 @@ namespace think\health\Command;
 
 use think\console\Command;
 use think\console\Input;
+use think\console\input\Option;
 use think\console\Output;
 use think\facade\Config;
 use think\health\CheckHealth;
@@ -17,6 +18,7 @@ class Check extends Command
     public function configure(): void
     {
         $this->setName('health:check')
+            ->addOption('report', 'r', Option::VALUE_NONE, 'Report health')
             ->setDescription('Check health');
     }
 
@@ -35,6 +37,17 @@ class Check extends Command
             $reportHandles
         );
         $checkHealth->check();
-        $checkHealth->report();
+        if ($input->hasOption('report')) {
+            $checkHealth->report();
+        } else {
+            $errors = $checkHealth->getErrors();
+            if ($errors->isEmpty()) {
+                $output->writeln('ok');
+            } else {
+                foreach ($errors as $name => $th) {
+                    $output->writeln($name . ' ' . $th->getMessage());
+                }
+            }
+        }
     }
 }
