@@ -18,8 +18,6 @@ use think\health\Contract\CheckAbstracte;
 class CheckHttp extends CheckAbstracte
 {
     /**
-     * Undocumented function
-     *
      * @param string $url
      * @param integer $timeout
      * @param array<integer> $statusCodes
