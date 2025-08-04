@@ -41,7 +41,7 @@ ok
 HTTP/1.1 500 Internal Server Error
 Content-Type: text/html
 
-{"检查环境变量":"env APP_DEBUG is not falsy"}
+{"CheckEnv":"APP_DEBUG is not falsy"}
 ```
 
 也可以通过命令行 `health:check` 进行健康检查。
@@ -60,7 +60,7 @@ ok
 ### 失败
 
 ```
-检查环境变量 env APP_DEBUG is not falsy
+CheckEnv APP_DEBUG is not falsy
 ```
 
 ## 配置选项
@@ -196,7 +196,7 @@ use think\health\Contract\CheckAbstracte;
 class CheckApp extends CheckAbstracte
 {
     public function name():string{
-        return 'app检查';
+        return 'app check';
     }
 
     public function handle():void

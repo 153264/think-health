@@ -36,7 +36,7 @@ class CheckCache extends CheckAbstracte
 
     public function name(): string
     {
-        return '检查缓存';
+        return 'CheckCache';
     }
 
     public function handle(): void
@@ -50,7 +50,7 @@ class CheckCache extends CheckAbstracte
             if ($cache->get($key) !== $value) {
                 throw new Exception(
                     sprintf(
-                        'cache %s is not set',
+                        '%s is not set',
                         $store
                     )
                 );

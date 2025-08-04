@@ -33,7 +33,7 @@ class CheckDataBase extends CheckAbstracte
 
     public function name(): string
     {
-        return '检查数据库连接';
+        return 'CheckDataBase';
     }
 
     public function handle(): void
@@ -51,7 +51,7 @@ class CheckDataBase extends CheckAbstracte
             } catch (Exception $e) {
                 throw new Exception(
                     sprintf(
-                        'connection %s Database connection failed: %s',
+                        '%s Database connection failed: %s',
                         $connection,
                         $e->getMessage()
                     )

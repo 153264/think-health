@@ -31,7 +31,7 @@ class CheckFolder extends CheckAbstracte
 
     public function name(): string
     {
-        return '检查文件夹大小';
+        return 'CheckFolder';
     }
 
     public function handle(): void
@@ -40,7 +40,7 @@ class CheckFolder extends CheckAbstracte
         foreach ($folders as $folder => $maxSize) {
             $size = $this->getFolderSize($folder);
             if ($size > $maxSize) {
-                throw new Exception("文件夹 {$folder} 大小超出上限，当前大小：{$size} 字节，允许最大：{$maxSize} 字节");
+                throw new Exception("The size of the folder {$folder} has exceeded the upper limit. The current size is {$size} bytes, and the maximum allowable size is {$maxSize} bytes");
             }
         }
     }

@@ -32,7 +32,7 @@ class CheckEnv extends CheckAbstracte
 
     public function name(): string
     {
-        return '检查环境变量';
+        return 'CheckEnv';
     }
 
     public function handle(): void
@@ -51,7 +51,7 @@ class CheckEnv extends CheckAbstracte
                 if (!is_string($env)) {
                     throw new Exception(
                         sprintf(
-                            'env %s is not string',
+                            '%s is not string',
                             $key
                         )
                     );
@@ -61,7 +61,7 @@ class CheckEnv extends CheckAbstracte
                 if (!is_numeric($env)) {
                     throw new Exception(
                         sprintf(
-                            'env %s is not int',
+                            '%s is not int',
                             $key
                         )
                     );
@@ -71,7 +71,7 @@ class CheckEnv extends CheckAbstracte
                 if (!$env) {
                     throw new Exception(
                         sprintf(
-                            'env %s is not truthy',
+                            '%s is not truthy',
                             $key
                         )
                     );
@@ -81,7 +81,7 @@ class CheckEnv extends CheckAbstracte
                 if ($env) {
                     throw new Exception(
                         sprintf(
-                            'env %s is not falsy',
+                            '%s is not falsy',
                             $key
                         )
                     );
@@ -91,7 +91,7 @@ class CheckEnv extends CheckAbstracte
                 if (!is_bool($env)) {
                     throw new Exception(
                         sprintf(
-                            'env %s is not bool',
+                            '%s is not bool',
                             $key
                         )
                     );
@@ -101,7 +101,7 @@ class CheckEnv extends CheckAbstracte
                 if ($env !== $value) {
                     throw new Exception(
                         sprintf(
-                            'env %s is not %s',
+                            '%s is not %s',
                             $key,
                             $value
                         )

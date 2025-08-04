@@ -37,7 +37,7 @@ class CheckHttp extends CheckAbstracte
 
     public function name(): string
     {
-        return '检查网络资源 ' . $this->url;
+        return 'CheckHttp ' . $this->url;
     }
 
     public function handle(): void
@@ -53,7 +53,7 @@ class CheckHttp extends CheckAbstracte
         curl_exec($curl);
         $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         if (!in_array($httpCode, $this->statusCodes)) {
-            throw new Exception("HTTP request failed with status code: {$httpCode}", 1);
+            throw new Exception("request failed with status code: {$httpCode}", 1);
         }
         curl_close($curl);
     }
