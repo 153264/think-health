@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+# 代码样式检查
+./vendor/bin/php-cs-fixer check -vv
+# 代码检查
+pnpm run lint-staged
+# 代码静态分析
+./vendor/bin/phpstan analyse --no-progress 

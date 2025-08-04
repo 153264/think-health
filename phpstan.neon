@@ -1,0 +1,8 @@
+parameters:
+	tmpDir: ./.cache/.phpstan.neon.cache
+	treatPhpDocTypesAsCertain: false
+	level: max
+	paths:
+		- src
+	scanDirectories:
+	 	- vendor

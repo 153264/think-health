@@ -1,0 +1,47 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "代码样式检查",
+      "type": "shell",
+      "command": "./vendor/bin/php-cs-fixer check -vv"
+    },
+    {
+      "label": "代码样式修复",
+      "type": "shell",
+      "command": "./vendor/bin/php-cs-fixer fix"
+    },
+    {
+      "label": "代码静态分析",
+      "type": "shell",
+      "command": "./vendor/bin/phpstan analyse"
+    },
+    {
+      "label": "单元测试",
+      "type": "shell",
+      "command": "./vendor/bin/pest"
+    },
+    {
+      "label": "单元测试-当前文件",
+      "type": "shell",
+      "command": "./vendor/bin/pest ${file}"
+    },
+    {
+      "label": "代码样式检查-当前文件",
+      "type": "shell",
+      "command": "./vendor/bin/php-cs-fixer check ${file}"
+    },
+    {
+      "label": "代码样式修复-当前文件",
+      "type": "shell",
+      "command": "./vendor/bin/php-cs-fixer fix ${file}"
+    },
+    {
+      "label": "代码静态分析-当前文件",
+      "type": "shell",
+      "command": "./vendor/bin/phpstan analyse ${file}"
+    }
+  ]
+}
