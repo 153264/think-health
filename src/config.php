@@ -6,6 +6,7 @@ use think\health\Check\CheckCache;
 use think\health\Check\CheckDataBase;
 use think\health\Check\CheckEnv;
 use think\health\Check\CheckFolder;
+use think\health\Check\CheckHttp;
 use think\health\Contract\CheckAbstracte;
 use think\health\Contract\ReportAbstracte;
 
@@ -90,5 +91,22 @@ return [
                 runtime_path() => 1024 * 1024 * 1024
             ]
         ),
+        new CheckHttp(
+            /**
+             * 需要检查的网络资源
+             * @var string
+             */
+            url: 'https://www.baidu.com',
+            /**
+             * 超时时间
+             * @var integer
+             */
+            timeout: 30,
+            /**
+             * 允许的HTTP状态码
+             * @var array<integer>
+             */
+            statusCodes: [200, 201, 202, 204],
+        )
     ],
 ];

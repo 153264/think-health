@@ -149,6 +149,23 @@ return [
                 runtime_path() => 1024 * 1024 * 1024
             ]
         ),
+        new CheckHttp(
+            /**
+             * 需要检查的网络资源
+             * @var string
+             */
+            url: 'https://www.baidu.com',
+            /**
+             * 超时时间
+             * @var integer
+             */
+            timeout: 30,
+            /**
+             * 允许的HTTP状态码
+             * @var array<integer>
+             */
+            statusCodes: [200, 201, 202, 204],
+        )
     ],
 ];
 ```
@@ -234,6 +251,10 @@ class ReportApp extends ReportAbstracte
 ### CheckFolder
 
 检查文件夹大小是否正常
+
+### CheckHttp
+
+检查网络资源
 
 ## 许可证
 
