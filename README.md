@@ -19,13 +19,14 @@ composer require 153264/think-health
 
 ## 基本使用
 
-安装后，健康检查接口会自动注册到你的应用中。默认情况下，你可以通过访问 `/health` 路径来进行健康检查：
+安装后，健康检查接口会自动注册到你的应用中。
+默认情况下，你可以通过访问 `/health` 路径来进行健康检查：
 
 ```bash
 curl http://your-domian/your-entrance/health
 ```
 
-### 成功响应
+### 成功
 
 ```
 HTTP/1.1 200 OK
@@ -34,13 +35,32 @@ Content-Type: text/html
 ok
 ```
 
-### 失败响应
+### 失败
 
 ```
 HTTP/1.1 500 Internal Server Error
 Content-Type: text/html
 
-Database connection failed: SQLSTATE[HY000] [2002] Connection refused
+{"检查环境变量":"env APP_DEBUG is not falsy"}
+```
+
+也可以通过命令行 `health:check` 进行健康检查。
+默认不进行上报，如果需要上报可以使用 `-r` 选项 
+
+```bash
+php think health:check
+```
+
+### 成功
+
+```
+ok
+```
+
+### 失败
+
+```
+检查环境变量 env APP_DEBUG is not falsy
 ```
 
 ## 配置选项
@@ -59,6 +79,7 @@ return [
 
     /**
      * 健康检查上报
+     * 必须要继承 ReportAbstracte 类
      * @var array<ReportAbstracte>
      */
     'reportHandles' => [
@@ -160,8 +181,39 @@ class CheckApp extends CheckAbstracte
 
 ```php
 'checkHandles' => [
-    // ... 其他监听器
+    // ... 其他检查
     new \app\check\CheckApp()
+],
+```
+
+## 创建自定义上报
+
+你可以创建自定义的上报逻辑：
+
+```php
+<?php
+
+namespace app\report;
+
+use think\health\Contract\ReportAbstracte;
+
+class ReportApp extends ReportAbstracte
+{
+    /**
+     * @param Collection<string,Throwable|bool> $messages
+     */
+    public function handle(Collection $messages): void {
+        // report app
+    }
+}
+```
+
+然后在配置文件中添加这个上报：
+
+```php
+'reportHandles' => [
+    // ... 其他上报
+    new \app\report\ReportApp()
 ],
 ```
 

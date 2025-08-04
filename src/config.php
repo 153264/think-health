@@ -21,6 +21,7 @@ return [
 
     /**
      * 健康检查上报
+     * 必须要继承 ReportAbstracte 类
      * @var array<ReportAbstracte>
      */
     'reportHandles' => [],
