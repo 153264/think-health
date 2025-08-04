@@ -10,7 +10,6 @@ use think\health\Command\Check;
 use think\health\Contract\CheckAbstracte;
 use think\Response;
 use think\Service as ThinkService;
-use Throwable;
 
 class Service extends ThinkService
 {
@@ -69,10 +68,10 @@ class Service extends ThinkService
             []
         );
         $checkHealth->check();
-        $errors = $checkHealth->getErrors();
+        $errors = $checkHealth->getErrorMessages();
         $isOk = $errors->isEmpty();
         return Response::create(
-            $isOk ? 'ok' : $errors->map(fn (Throwable $error) => $error->getMessage()),
+            $isOk ? 'ok' : $errors,
             'html',
             $isOk ? 500 : 200
         );

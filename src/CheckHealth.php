@@ -55,6 +55,22 @@ class CheckHealth
         return $errors;
     }
 
+    /**
+     * @return Collection<string,string>
+     * @date 2025-08-04
+     * @example
+     * @author lpf
+     * @since 1.0.0
+     */
+    public function getErrorMessages(): Collection
+    {
+        /**
+         * @var Collection<string,string> $messages
+         */
+        $messages = $this->getErrors()->map(fn (Throwable $th) => $th->getMessage());
+        return $messages;
+    }
+
     public function check(): void
     {
         foreach ($this->checkHandles as $checkHandle) {
