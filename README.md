@@ -83,6 +83,18 @@ return [
      * @var array<ReportAbstracte>
      */
     'reportHandles' => [
+        new Http(
+            /**
+             * 上报地址
+             * @var string
+             */
+            url: 'https://your-server.com/health/report',
+            /**
+             * 超时时间
+             * @var integer
+             */
+            timeout: 30,
+        )
     ],
     /**
      * 监听器
@@ -154,7 +166,7 @@ return [
              * 需要检查的网络资源
              * @var string
              */
-            url: 'https://www.baidu.com',
+            url: 'https://your-server.com/resource',
             /**
              * 超时时间
              * @var integer

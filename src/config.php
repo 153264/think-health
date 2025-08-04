@@ -9,6 +9,7 @@ use think\health\Check\CheckFolder;
 use think\health\Check\CheckHttp;
 use think\health\Contract\CheckAbstracte;
 use think\health\Contract\ReportAbstracte;
+use think\health\Report\Http;
 
 /**
  * 健康检查配置
@@ -25,7 +26,20 @@ return [
      * 必须要继承 ReportAbstracte 类
      * @var array<ReportAbstracte>
      */
-    'reportHandles' => [],
+    'reportHandles' => [
+        new Http(
+            /**
+             * 上报地址
+             * @var string
+             */
+            url: 'https://your-server.com/health/report',
+            /**
+             * 超时时间
+             * @var integer
+             */
+            timeout: 30,
+        )
+    ],
     /**
      * 监听器
      * 必须要继承 CheckAbstracte 类
@@ -96,7 +110,7 @@ return [
              * 需要检查的网络资源
              * @var string
              */
-            url: 'https://www.baidu.com',
+            url: 'https://your-server.com/resource',
             /**
              * 超时时间
              * @var integer
