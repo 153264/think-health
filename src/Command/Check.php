@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace think\health\Command;
 
 use think\console\Command;
-use think\console\Input;
 use think\console\input\Option;
-use think\console\Output;
 use think\facade\Config;
 use think\health\CheckHealth;
 use think\health\Contract\CheckAbstracte;
@@ -22,8 +20,10 @@ class Check extends Command
             ->setDescription('Check health');
     }
 
-    public function handle(Input $input, Output $output): void
+    public function handle(): void
     {
+        $input = $this->input;
+        $output = $this->output;
         /**
          * @var array<CheckAbstracte> $checkHandles
          */
@@ -40,12 +40,12 @@ class Check extends Command
         if ($input->hasOption('report')) {
             $checkHealth->report();
         } else {
-            $errors = $checkHealth->getErrors();
+            $errors = $checkHealth->getErrorMessages();
             if ($errors->isEmpty()) {
                 $output->writeln('ok');
             } else {
-                foreach ($errors as $name => $th) {
-                    $output->writeln($name . ' ' . $th->getMessage());
+                foreach ($errors as $name => $error) {
+                    $output->writeln($name . ' ' . $error);
                 }
             }
         }
