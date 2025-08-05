@@ -30,16 +30,32 @@ composer require 153264/think-health
 
 默认情况下，你可以通过访问 `/health` 路径来进行健康检查：
 
+:::warning
+开启调试模式时，接口会返回详细的异常服务和信息<br/>
+生产环境请一定要关闭调试模式
+
 ```bash
 curl http://your-domian/your-entrance/health
 
-# 成功
+# 服务异常
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/html
+
+{"CheckEnv":"APP_DEBUG is not falsy","CheckCache":"health_check_cache_key is not set"}
+```
+
+:::
+
+```bash
+curl http://your-domian/your-entrance/health
+
+# 服务正常
 HTTP/1.1 200 OK
 Content-Type: text/html
 
 ok
 
-# 失败
+# 服务异常
 HTTP/1.1 500 Internal Server Error
 Content-Type: text/html
 
@@ -52,13 +68,14 @@ error
 默认不进行上报，如果需要上报可以使用 `--report` 选项
 
 ```bash
-php think health:check --report
+php think health:check
 
-# 成功
+# 服务正常
 ok
 
-# 失败
-{"CheckEnv":"APP_DEBUG is not falsy"}
+# 服务异常
+CheckEnv APP_DEBUG is not falsy
+CheckCache health_check_cache_key is not set
 ```
 
 ## 开始之前

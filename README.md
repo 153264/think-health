@@ -26,7 +26,7 @@ composer require 153264/think-health
 curl http://your-domian/your-entrance/health
 ```
 
-### 成功
+### 服务正常
 
 ```
 HTTP/1.1 200 OK
@@ -35,7 +35,7 @@ Content-Type: text/html
 ok
 ```
 
-### 失败
+### 服务异常
 
 ```
 HTTP/1.1 500 Internal Server Error
@@ -45,22 +45,23 @@ error
 ```
 
 也可以通过命令行 `health:check` 进行健康检查。
-默认不进行上报，如果需要上报可以使用 `-r` 选项 
+默认不进行上报，如果需要上报可以使用 `--report` 选项 
 
 ```bash
 php think health:check
 ```
 
-### 成功
+### 服务正常
 
 ```
 ok
 ```
 
-### 失败
+### 服务异常
 
 ```
 CheckEnv APP_DEBUG is not falsy
+CheckCache health_check_cache_key is not set
 ```
 
 ## 配置选项
