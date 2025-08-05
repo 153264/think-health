@@ -9,7 +9,19 @@
   "license": "MIT",
   "support": {
     "issues": "https://github.com/153264/think-health/issues",
-    "source": "https://github.com/153264/think-health"
+    "source": "https://github.com/153264/think-health",
+    "docs": "https://153264.github.io/think-health/"
+  },
+  "archive": {
+    "exclude": [
+      "*",
+      "!/src/**",
+      "!/composer.json",
+      "!/README.md",
+      "/.gitignore",
+      "/.cache",
+      "/.php-cs-fixer.dist.php"
+    ]
   },
   "autoload": {
     "psr-4": {
