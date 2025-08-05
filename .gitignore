@@ -5,3 +5,5 @@
 *.log
 .env
 *copy*
+/docs/.vitepress/cache
+/docs/.vitepress/dist
