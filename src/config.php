@@ -20,9 +20,8 @@ return [
      * @var string|bool
      */
     'url' => '/health',
-
     /**
-     * 健康检查上报
+     * 上报器
      * 必须要继承 ReportAbstracte 类
      * @var array<ReportAbstracte>
      */
@@ -41,7 +40,7 @@ return [
         )
     ],
     /**
-     * 监听器
+     * 检查器
      * 必须要继承 CheckAbstracte 类
      * @var array<CheckAbstracte>
      */
