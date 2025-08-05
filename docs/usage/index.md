@@ -43,7 +43,7 @@ ok
 HTTP/1.1 500 Internal Server Error
 Content-Type: text/html
 
-{"CheckEnv":"APP_DEBUG is not falsy"}
+error
 ```
 
 ### 命令行 检查

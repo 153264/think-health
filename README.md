@@ -41,7 +41,7 @@ ok
 HTTP/1.1 500 Internal Server Error
 Content-Type: text/html
 
-{"CheckEnv":"APP_DEBUG is not falsy"}
+error
 ```
 
 也可以通过命令行 `health:check` 进行健康检查。

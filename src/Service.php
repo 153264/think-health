@@ -71,7 +71,7 @@ class Service extends ThinkService
         $errors = $checkHealth->getErrorMessages();
         $isOk = $errors->isEmpty();
         return Response::create(
-            $isOk ? 'ok' : $errors,
+            $isOk ? 'ok' : ($this->app->isDebug() ? $errors : 'error'),
             'html',
             $isOk ? 500 : 200
         );
