@@ -33,7 +33,7 @@ git push origin new_feature
 
 ## 更新文档
 
-我们的文档也是开源的，源代码在 [153264/think-health/docs](https://github.com/153264/think-health/tree/docs)
+我们的文档也是开源的，源代码在 [153264/think-health/docs](https://github.com/153264/think-health/tree/main/docs)
 
 ### 流程
 
