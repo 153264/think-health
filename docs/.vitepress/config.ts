@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "think-health",
   description: "一个为 ThinkPHP 框架设计的健康检查库",
+  base: '/think-health/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
