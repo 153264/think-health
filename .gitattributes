@@ -2,6 +2,8 @@
 /.husky/** export-ignore
 /.vscode/** export-ignore
 /docs/** export-ignore
+docs export-ignore
+
 /.php-cs-fixer.dist.php export-ignore
 /*.js export-ignore
 /pnpm-lock.yaml export-ignore
