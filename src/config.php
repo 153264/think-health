@@ -9,7 +9,7 @@ use think\health\Check\CheckFolder;
 use think\health\Check\CheckHttp;
 use think\health\Contract\CheckAbstracte;
 use think\health\Contract\ReportAbstracte;
-use think\health\Report\Http;
+use think\health\Report\ReportHttp;
 
 /**
  * 健康检查配置
@@ -26,7 +26,7 @@ return [
      * @var array<ReportAbstracte>
      */
     'reportHandles' => [
-        new Http(
+        new ReportHttp(
             /**
              * 上报地址
              * @var string

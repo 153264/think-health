@@ -9,7 +9,7 @@ use think\Collection;
 use think\health\Contract\ReportAbstracte;
 use Throwable;
 
-class Http extends ReportAbstracte
+class ReportHttp extends ReportAbstracte
 {
     public function __construct(
         private string $url,
