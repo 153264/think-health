@@ -1,11 +1,10 @@
-/.github/** export-ignore
-/.husky/** export-ignore
-/.vscode/** export-ignore
-/docs/** export-ignore
+.github export-ignore
+.husky export-ignore
+.vscode export-ignore
 docs export-ignore
 
-/.php-cs-fixer.dist.php export-ignore
-/*.js export-ignore
-/pnpm-lock.yaml export-ignore
-/phpstan.neon export-ignore
-/package.json export-ignore
+.php-cs-fixer.dist.php export-ignore
+*.js export-ignore
+pnpm-lock.yaml export-ignore
+phpstan.neon export-ignore
+package.json export-ignore
