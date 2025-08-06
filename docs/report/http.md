@@ -2,7 +2,7 @@
 outline: deep
 ---
 
-# Http 网络上报器
+# ReportHttp 网络上报器
 
 :::warning
 暂时不对上报结果进行验证，或进行重试<br/>
@@ -10,7 +10,7 @@ outline: deep
 :::
 
 ```php
-new \think\health\Report\Http(
+new \think\health\Report\ReportHttp(
     /**
      * 上报地址
      * @var string

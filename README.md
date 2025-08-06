@@ -84,7 +84,7 @@ return [
      * @var array<ReportAbstracte>
      */
     'reportHandles' => [
-        new Http(
+        new ReportHttp(
             /**
              * 上报地址
              * @var string
@@ -202,7 +202,7 @@ class CheckApp extends CheckAbstracte
 
     public function handle():void
     {
-        // check app
+        // check logic
     }
 }
 ```
@@ -233,7 +233,7 @@ class ReportApp extends ReportAbstracte
      * @param Collection<string,Throwable|bool> $messages
      */
     public function handle(Collection $messages): void {
-        // report app
+        // report logic
     }
 }
 ```
