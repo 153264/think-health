@@ -5,8 +5,18 @@ export default defineConfig({
   title: "think-health",
   description: "一个为 ThinkPHP 框架设计的健康检查库",
   base: '/think-health/',
+  lastUpdated: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    search: {
+      provider: 'local'
+    },
+
+    footer: {
+      message: 'Released under the <a href="https://github.com/153264/think-health/blob/main/LICENSE">MIT License</a>.',
+      copyright: 'Copyright © 2025-present <a href="https://github.com/153264">153264</a>'
+    },
+
     nav: [
       { text: '首页', link: '/' },
       { text: '文档', link: '/usage/' }
