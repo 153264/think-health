@@ -4,9 +4,7 @@ outline: deep
 
 # 自定义上报器
 
-:::warning
 必须要继承 `think\health\Contract\ReportAbstracte` 类
-:::
 
 ```php
 <?php

@@ -4,9 +4,7 @@ outline: deep
 
 # 自定义检查器
 
-:::warning
 必须要继承 `think\health\Contract\CheckAbstracte` 类
-:::
 
 ```php
 <?php

@@ -33,10 +33,10 @@ export default defineConfig({
         ]
       },
       {
-        text: '扩展',
+        text: '自定义',
         items: [
-          { text: '自定义检查器', link: '/check/' },
-          { text: '自定义上报器', link: '/report/' },
+          { text: '检查器', link: '/check/' },
+          { text: '上报器', link: '/report/' },
         ]
       },
       {
