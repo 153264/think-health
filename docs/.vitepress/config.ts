@@ -37,6 +37,14 @@ export default defineConfig({
         items: [
           { text: '检查器', link: '/check/' },
           { text: '上报器', link: '/report/' },
+          // { text: '控制器', link: '/controller/' },
+        ]
+      },
+      {
+        text: '内置控制器',
+        items: [
+          { text: '文本控制器', link: '/controller/text' },
+          { text: 'JSON控制器', link: '/controller/json' },
         ]
       },
       {
