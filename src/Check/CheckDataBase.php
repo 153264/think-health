@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace think\health\Check;
 
-use think\DbManager;
+use think\db\ConnectionInterface;
 use think\Exception;
 use think\facade\Config;
 use think\facade\Db;
@@ -43,10 +43,10 @@ class CheckDataBase extends CheckAbstracte
         foreach ($connections as $connection) {
             try {
                 /**
-                 * @var DbManager $connect
+                 * @var ConnectionInterface $connect
                  */
                 $connect = Db::connect($connection);
-                $instance = $connect->connect();
+                $connect->connect();
             } catch (Exception $e) {
                 throw new Exception(
                     sprintf(
@@ -56,8 +56,8 @@ class CheckDataBase extends CheckAbstracte
                     )
                 );
             } finally {
-                if (isset($instance)) {
-                    $instance->close();
+                if (isset($connect)) {
+                    $connect->close();
                 }
             }
         }
