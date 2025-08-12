@@ -4,9 +4,7 @@ outline: deep
 
 # CheckDataBase 数据库检查器
 
-:::warning
-暂时不支持 `Mongo` 数据库检查
-:::
+## 实例化
 
 ```php
 new \think\health\Check\CheckDataBase(
@@ -18,6 +16,8 @@ new \think\health\Check\CheckDataBase(
     connections: []
 )
 ```
+
+## 参数说明
 
 | 参数        | 类型            | 是否必传 | 默认值 | 说明                                                    |
 | ----------- | --------------- | -------- | ------ | ------------------------------------------------------- |

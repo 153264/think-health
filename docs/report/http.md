@@ -9,6 +9,8 @@ outline: deep
 建议使用 [GuzzleHttp](https://docs.guzzlephp.org/en/stable/)
 :::
 
+## 实例化
+
 ```php
 new \think\health\Report\ReportHttp(
     /**
@@ -23,6 +25,8 @@ new \think\health\Report\ReportHttp(
     timeout: 30,
 )
 ```
+
+## 参数说明
 
 | 参数    | 类型    | 是否必传 | 默认值 | 说明     |
 | ------- | ------- | -------- | ------ | -------- |

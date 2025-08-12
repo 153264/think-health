@@ -14,6 +14,10 @@ hero:
 features:
   - title: 多种检查器支持
     details: 数据库、缓存、环境变量、文件夹大小、HTTP资源
+  - title: 多种上报器支持
+    details: HTTP上报
+  - title: 多种控制器支持
+    details: 文本、JSON返回
   - title: 可扩展架构
     details: 支持自定义检查器和上报器
   - title: 上报机制

@@ -2,10 +2,12 @@
 outline: deep
 ---
 
-# Text 文本控制器
+# ControllerText 文本控制器
+
+## 实例化
 
 ```php
-new \think\health\Controller\Text(
+new \think\health\Controller\ControllerText(
     /**
      * 正常状态码
      * @var int
@@ -29,9 +31,29 @@ new \think\health\Controller\Text(
 )
 ```
 
+## 参数说明
+
 | 参数              | 类型    | 是否必传 | 默认值 | 说明       |
 | ----------------- | ------- | -------- | ------ | ---------- |
 | successStatusCode | integer | 否       | 200    | 正常状态码 |
 | errorStatusCode   | integer | 否       | 500    | 异常状态码 |
 | successMessage    | string  | 否       | ok     | 正常信息   |
 | errorMessage      | string  | 否       | error  | 异常信息   |
+
+## 请求示例
+
+```bash
+curl http://your-domian/your-entrance/health
+
+# 服务正常
+HTTP/1.1 200 OK
+Content-Type: text/html
+
+ok
+
+# 服务异常
+HTTP/1.1 500 Internal Server Error
+Content-Type: text/html
+
+error
+```

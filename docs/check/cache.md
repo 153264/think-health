@@ -4,6 +4,8 @@ outline: deep
 
 # CheckCache 缓存检查器
 
+## 实例化
+
 ```php
 new \think\health\Check\CheckCache(
     /**
@@ -24,6 +26,8 @@ new \think\health\Check\CheckCache(
     value: 'health_check_cache_value'
 )
 ```
+
+## 参数说明
 
 | 参数   | 类型            | 是否必传 | 默认值                   | 说明                                        |
 | ------ | --------------- | -------- | ------------------------ | ------------------------------------------- |

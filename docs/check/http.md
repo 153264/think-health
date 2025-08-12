@@ -4,6 +4,8 @@ outline: deep
 
 # CheckHttp 网络资源检查器
 
+## 实例化
+
 ```php
 new \think\health\Check\CheckHttp(
     /**
@@ -23,6 +25,8 @@ new \think\health\Check\CheckHttp(
     statusCodes: [200, 201, 202, 204],
 )
 ```
+
+## 参数说明
 
 | 参数        | 类型             | 是否必传 | 默认值               | 说明               |
 | ----------- | ---------------- | -------- | -------------------- | ------------------ |
