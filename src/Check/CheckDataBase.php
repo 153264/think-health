@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace think\health\Check;
 
+use think\DbManager;
 use think\Exception;
 use think\facade\Config;
 use think\facade\Db;
@@ -41,13 +42,11 @@ class CheckDataBase extends CheckAbstracte
         $connections = $this->getConnections();
         foreach ($connections as $connection) {
             try {
+                /**
+                 * @var DbManager $connect
+                 */
                 $connect = Db::connect($connection);
-
-                if (method_exists($connect, 'getTables')) {
-                    $connect->getTables();
-                } else {
-                    throw new Exception('not support getTables method');
-                }
+                $instance = $connect->connect();
             } catch (Exception $e) {
                 throw new Exception(
                     sprintf(
@@ -57,8 +56,8 @@ class CheckDataBase extends CheckAbstracte
                     )
                 );
             } finally {
-                if (isset($connect)) {
-                    $connect->close();
+                if (isset($instance)) {
+                    $instance->close();
                 }
             }
         }

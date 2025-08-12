@@ -3,6 +3,7 @@ parameters:
 	treatPhpDocTypesAsCertain: false
 	level: max
 	paths:
+		- config
 		- src
 	scanDirectories:
 	 	- vendor

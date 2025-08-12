@@ -6,10 +6,7 @@ namespace think\health\Command;
 
 use think\console\Command;
 use think\console\input\Option;
-use think\facade\Config;
 use think\health\CheckHealth;
-use think\health\Contract\CheckAbstracte;
-use think\health\Contract\ReportAbstracte;
 
 class Check extends Command
 {
@@ -24,18 +21,7 @@ class Check extends Command
     {
         $input = $this->input;
         $output = $this->output;
-        /**
-         * @var array<CheckAbstracte> $checkHandles
-         */
-        $checkHandles = Config::get('health.checkHandles');
-        /**
-         * @var array<ReportAbstracte> $reportHandles
-         */
-        $reportHandles = Config::get('health.reportHandles');
-        $checkHealth = new CheckHealth(
-            $checkHandles,
-            $reportHandles
-        );
+        $checkHealth = CheckHealth::loadConfig();
         $checkHealth->check();
         if ($input->hasOption('report')) {
             $checkHealth->report();

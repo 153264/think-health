@@ -9,17 +9,47 @@ use think\health\Check\CheckFolder;
 use think\health\Check\CheckHttp;
 use think\health\Contract\CheckAbstracte;
 use think\health\Contract\ReportAbstracte;
+use think\health\Contract\ControllerAbstracte;
+use think\health\Controller\ControllerText;
 use think\health\Report\ReportHttp;
 
 /**
  * 健康检查配置
  */
 return [
-    /**
-     * 健康检查路由
-     * @var string|bool
-     */
-    'url' => '/health',
+    'registerRoute' => [
+        /**
+         * 健康检查路由
+         * @var string|bool
+         */
+        'url' => '/health',
+        /**
+         * 健康检查控制器
+         * @var ControllerAbstracte
+         */
+        'controller' => new ControllerText(
+            /**
+             * 成功状态码
+             * @var integer
+             */
+            successStatusCode: 200,
+            /**
+             * 错误状态码
+             * @var integer
+             */
+            errorStatusCode: 500,
+            /**
+             * 成功消息
+             * @var string
+             */
+            successMessage: 'ok',
+            /**
+             * 错误消息
+             * @var string
+             */
+            errorMessage: 'error',
+        ),
+    ],
     /**
      * 上报器
      * 必须要继承 ReportAbstracte 类

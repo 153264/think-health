@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace think\health;
 
 use think\Collection;
+use think\facade\Config;
 use think\health\Contract\CheckAbstracte;
 use think\health\Contract\ReportAbstracte;
 use Throwable;
@@ -12,7 +13,7 @@ use Throwable;
 class CheckHealth
 {
     /**
-     * @var Collection<string,Throwable|bool>
+     * @var Collection<string,Throwable|true>
      */
     private Collection $messages;
 
@@ -27,8 +28,24 @@ class CheckHealth
         $this->messages = new Collection();
     }
 
+    public static function loadConfig(): self
+    {
+        /**
+         * @var array<CheckAbstracte> $checkHandles
+         */
+        $checkHandles = Config::get('health.checkHandles', []);
+        /**
+         * @var array<ReportAbstracte> $reportHandles
+         */
+        $reportHandles = Config::get('health.reportHandles', []);
+        return new self(
+            $checkHandles,
+            $reportHandles
+        );
+    }
+
     /**
-     * @return Collection<string,Throwable|bool>
+     * @return Collection<string,Throwable|true>
      * @date 2025-08-04
      * @example
      * @author lpf

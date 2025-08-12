@@ -6,4 +6,4 @@ outline: deep
 
 下面是一个完整的配置样例：
 
-<<< @../../src/config.php
+<<< @../../config/health.php
