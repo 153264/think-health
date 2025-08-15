@@ -19,6 +19,7 @@
       "!/src/**",
       "!/composer.json",
       "!/README.md",
+      "!/SECURITY.md",
       "/.gitignore",
       "/.cache",
       "/.php-cs-fixer.dist.php"
