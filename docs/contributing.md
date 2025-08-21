@@ -41,7 +41,7 @@ git push origin new_feature
 2. Clone 到你的电脑：
 
 ```shell:no-line-numbers
-git clone https://github.com/<username>/site.git
+git clone https://github.com/<username>/think-health.git
 cd docs
 ```
 
@@ -51,4 +51,5 @@ cd docs
 
 ## 报告 Bug
 
-当你在使用过程中遇到问题，请查阅 [疑难解答](troubleshooting.md) 或者在这里提问 [GitHub](https://github.com/153264/think-health/issues). 如果还是不能解决你的问题，请到 GitHub 联系我们。
+当你在使用过程中遇到问题，请查阅 [疑难解答](troubleshooting.md) 或者在这里提问 [GitHub](https://github.com/153264/think-health/issues)。 <br/>
+如果还是不能解决你的问题，请到 GitHub 联系我们。

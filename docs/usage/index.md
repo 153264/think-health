@@ -49,7 +49,10 @@ error
 ### 命令行 检查
 
 你可以使用 `health:check` 进行健康检查。<br/>
+
+::: info
 默认不进行上报，如果需要上报可以使用 `--report` 选项
+:::
 
 ```bash
 php think health:check
@@ -70,5 +73,6 @@ CheckCache health_check_cache_key is not set
 
 ## 参与贡献
 
-我们欢迎广大开发者贡献大家的智慧，让我们共同让它变得更完美。
-您可以在 GitHub 上提交 Pull Request，我们会尽快审核并公布。更多信息请参考 [贡献指南](/contributing.md)。
+我们欢迎广大开发者贡献大家的智慧，让我们共同让它变得更完美。<br/>
+您可以在 GitHub 上提交 Pull Request，我们会尽快审核并公布。<br/>
+更多信息请参考 [贡献指南](/contributing.md)。

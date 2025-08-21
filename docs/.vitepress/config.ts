@@ -41,6 +41,12 @@ export default defineConfig({
         ]
       },
       {
+        text: '内置命令行',
+        items: [
+          { text: '检查命令', link: '/command/check' },
+        ]
+      },
+      {
         text: '内置控制器',
         items: [
           { text: '文本控制器', link: '/controller/text' },
