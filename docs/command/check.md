@@ -7,7 +7,7 @@ outline: deep
 ## 使用示例
 
 ```bash
-php think health [--report]
+php think health:check [--report]
 ```
 
 ## 参数说明
