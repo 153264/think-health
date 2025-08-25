@@ -12,14 +12,12 @@ declare(strict_types=1);
 
 namespace app\report;
 
+use think\health\CheckResult;
 use think\health\Contract\ReportAbstracte;
 
 class ReportApp extends ReportAbstracte
 {
-    /**
-     * @param Collection<string,Throwable|bool> $messages
-     */
-    public function handle(Collection $messages): void {
+    public function handle(CheckResult $result): void {
         // report logic
     }
 }

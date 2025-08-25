@@ -58,19 +58,16 @@ error
 
 ```bash
 php think health:check
-```
 
-### 服务正常
-
-```
-ok
-```
-
-### 服务异常
-
-```
-CheckEnv APP_DEBUG is not falsy
-CheckCache health_check_cache_key is not set
++--------------------------------------------+--------------------------------------------------------------------------------------------+
+| Name                                       | Message                                                                                    |
++--------------------------------------------+--------------------------------------------------------------------------------------------+
+| CheckDataBase                              | SQLSTATE[HY000] [1045] Access denied for user 'username'@'localhost' (using password: YES) |
+| CheckCache                                 | ok                                                                                         |
+| CheckEnv                                   | APP_DEBUG is not falsy                                                                     |
+| CheckFolder                                | ok                                                                                         |
+| CheckHttp https://your-server.com/resource | request failed with status code: 0                                                         |
++--------------------------------------------+--------------------------------------------------------------------------------------------+
 ```
 
 ## 文档和链接
