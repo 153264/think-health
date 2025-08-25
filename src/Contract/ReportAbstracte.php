@@ -4,13 +4,9 @@ declare(strict_types=1);
 
 namespace think\health\Contract;
 
-use think\Collection;
-use Throwable;
+use think\health\CheckResult;
 
 abstract class ReportAbstracte
 {
-    /**
-     * @param Collection<string,Throwable|bool> $messages
-     */
-    abstract public function handle(Collection $messages): void;
+    abstract public function handle(CheckResult $result): void;
 }

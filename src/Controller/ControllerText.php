@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace think\health\Controller;
 
-use think\health\CheckHealth;
 use think\health\Contract\ControllerAbstracte;
 use think\Response;
 
@@ -20,10 +19,8 @@ class ControllerText extends ControllerAbstracte
 
     public function handle(): Response
     {
-        $checkHealth = CheckHealth::loadConfig();
-        $checkHealth->check();
-        $errors = $checkHealth->getErrors();
-        $isOk = $errors->isEmpty();
+        $result = $this->check();
+        $isOk = $result->isOk();
         return Response::create(
             $isOk ? $this->successMessage : $this->errorMessage,
             'html',

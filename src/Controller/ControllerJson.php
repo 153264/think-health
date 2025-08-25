@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace think\health\Controller;
 
 use think\App;
-use think\health\CheckHealth;
 use think\health\Contract\ControllerAbstracte;
 use think\Response;
 use Throwable;
@@ -22,11 +21,9 @@ class ControllerJson extends ControllerAbstracte
     public function handle(): Response
     {
         $showErrorMessage = $this->showErrorMessage;
-        $checkHealth = CheckHealth::loadConfig();
-        $checkHealth->check();
-        $isOk = $checkHealth->getErrors()->isEmpty();
-        $messages = $checkHealth->getMessages()->map(
-            static function (true|Throwable $message) use ($showErrorMessage): string {
+        $result = $this->check();
+        $messages = array_map(
+            function (true|Throwable $message) use ($showErrorMessage): string {
                 if ($message === true) {
                     return 'ok';
                 }
@@ -41,12 +38,13 @@ class ControllerJson extends ControllerAbstracte
                     return 'error';
                 }
                 return $message->getMessage();
-            }
+            },
+            $result->getItems()
         );
         return Response::create(
-            $messages->toArray(),
+            $messages,
             'json',
-            $isOk ? $this->successStatusCode : $this->errorStatusCode
+            $result->isOk() ? $this->successStatusCode : $this->errorStatusCode
         );
     }
 }
